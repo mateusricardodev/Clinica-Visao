@@ -1,176 +1,112 @@
 # Visão Assistência Oftalmológica
 
-Landing page da clínica Visão Assistência Oftalmológica e do Dr. Ruy dos Santos Filho,
-em São José dos Campos/SP. Objetivo da página: apresentar a clínica, facilitar o
-agendamento (WhatsApp, telefone e formulário) e passar credibilidade com as avaliações.
+Landing page institucional da **Visão Assistência Oftalmológica** e do **Dr. Ruy dos Santos Filho**, em São José dos Campos/SP.
 
-Next.js 15 (App Router) + React 19 + Tailwind CSS v4 + TypeScript. Só front-end: os
-dados são mockados e o formulário simula o envio.
+O projeto apresenta a clínica com clareza, fortalece a credibilidade da marca e reduz o caminho entre a busca do paciente e o agendamento pelo WhatsApp.
 
-## Rodar o projeto
+## Funcionalidades
 
-Precisa de Node.js 18.18 ou mais novo.
+- Layout responsivo para celular, tablet e desktop.
+- Chamadas de ação para WhatsApp, telefone e rota no Google Maps.
+- Seções de clínica, especialista, serviços, exames, convênios e avaliações.
+- Formulário de solicitação de consulta com validação no navegador.
+- SEO técnico com metadata, canonical, Open Graph, sitemap e dados estruturados `MedicalClinic`.
+- Mapa carregado sob demanda e imagens WebP responsivas com placeholder.
+- Recursos de acessibilidade: contraste, foco visível, rótulos de formulário, link de salto e `prefers-reduced-motion`.
+
+> [!IMPORTANT]
+> Este projeto é apenas front-end. O formulário exibe uma confirmação, mas ainda não envia dados para e-mail, CRM ou WhatsApp. Antes da publicação, valide os dados da clínica e conecte o formulário a um serviço seguro.
+
+## Stack
+
+- [Next.js 15](https://nextjs.org/) com App Router
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Phosphor Icons](https://phosphoricons.com/)
+
+## Executar localmente
+
+**Pré-requisito:** Node.js 18.18 ou superior.
 
 ```bash
+git clone https://github.com/mateusricardodev/Clinica-Visao.git
+cd Clinica-Visao
 npm install
-```
-
-Ambiente de desenvolvimento em http://localhost:3000:
-
-```bash
 npm run dev
 ```
 
-Build de produção e execução local:
+Abra [http://localhost:3000](http://localhost:3000).
 
-```bash
-npm run build && npm run start
-```
-
-## Publicar
-
-A página é 100% estática e funciona em qualquer host.
-
-- **Vercel**: importar o repositório e publicar, sem configuração extra.
-- **Netlify / Cloudflare Pages**: comando `npm run build`, pasta `.next`.
-- **Host estático simples** (GitHub Pages, Hostinger, etc.): adicione
-  `output: "export"` no `next.config.mjs`, rode `npm run build` e publique a
-  pasta `out/`. As fotos já são servidas direto, sem servidor de imagens.
-
-Antes de publicar, troque `site.url` em `lib/site.ts` pelo domínio real. Esse valor
-alimenta a tag canonical, o Open Graph e o `sitemap.xml`.
-
-## Onde mexer
-
-Quase toda alteração de conteúdo acontece em quatro arquivos:
-
-| Arquivo | O que controla |
+| Comando | Descrição |
 | --- | --- |
-| `lib/site.ts` | Nome, médico, telefone, WhatsApp, endereço, horário, links do mapa, nota e total de avaliações, convênios, itens do menu |
-| `lib/servicos.ts` | Os quatro serviços e a lista de exames |
-| `lib/avaliacoes.ts` | Os três depoimentos |
-| `lib/fotos.ts` | Catálogo de fotos (gerado por `scripts/fotos.py`, não editar à mão) |
+| `npm run dev` | Inicia o ambiente de desenvolvimento. |
+| `npm run build` | Gera o build de produção. |
+| `npm run start` | Executa localmente o build de produção. |
+| `npm run lint` | Executa o lint configurado no projeto. |
 
-### Horário de funcionamento
+## Conteúdo e configurações
 
-O briefing pediu o status "Aberto · fecha às 18:00" como informação editável. Ele fica
-em `lib/site.ts`, no bloco `horario`. A página não calcula o horário sozinha; ajuste
-o texto conforme o funcionamento real.
+| Arquivo | Responsabilidade |
+| --- | --- |
+| [`lib/site.ts`](./lib/site.ts) | Nome, médico, telefone, WhatsApp, endereço, horário, mapas, convênios, avaliações e menu. |
+| [`lib/servicos.ts`](./lib/servicos.ts) | Serviços e exames exibidos. |
+| [`lib/avaliacoes.ts`](./lib/avaliacoes.ts) | Depoimentos apresentados na página. |
+| [`lib/fotos.ts`](./lib/fotos.ts) | Catálogo gerado de imagens e metadados. Não editar manualmente. |
+| [`app/globals.css`](./app/globals.css) | Tokens visuais, tipografia, cores e animações. |
 
-### WhatsApp e telefone
+Antes de publicar, altere `site.url` em [`lib/site.ts`](./lib/site.ts) para o domínio definitivo. Esse valor é usado na canonical, Open Graph, sitemap e dados estruturados.
 
-Em `lib/site.ts`. O WhatsApp usa o mesmo número do fixo, (12) 3942-4782, como
-confirmado pelo cliente. Todos os botões derivam de `whatsapp.base` e das mensagens
-pré-preenchidas em `whatsapp.mensagens`.
+## Publicação
 
-### Foto do Dr. Ruy
+O projeto pode ser publicado na Vercel, Netlify ou Cloudflare Pages.
 
-A única versão disponível tem 530 x 530 px e está em `public/fotos/dr-ruy-*.webp`.
-Para trocar por uma maior, substitua o arquivo original em `_raw/user/user-1.png`
-(fora do repositório) e rode o script de fotos, ou gere os WebP à mão com o mesmo
-padrão de nome e ajuste `lib/fotos.ts`.
+### Vercel
 
-### Trocar as cores
+Importe o repositório no painel da Vercel e mantenha as configurações padrão do Next.js.
 
-Os tokens ficam em `app/globals.css`, no bloco `@theme`. A paleta do briefing:
+### Netlify ou Cloudflare Pages
 
-```css
---color-petroleo: #0d3b55;   /* tinta forte, botão principal, a tira de filme */
---color-azul-claro: #c9e0ea; /* perfurações, placas, campos */
---color-agua: #39a99a;       /* brilho do quadro em foco e anel de foco */
+```text
+Build command: npm run build
+Publish directory: .next
 ```
 
-O verde-água tem três versões porque o contraste muda com o fundo: `--color-agua`
-(brilho e linhas, nunca texto sobre branco), `--color-agua-luz` (texto sobre a tira)
-e `--color-agua-tinta` (texto sobre branco).
-
-### Adicionar fotos
-
-1. Coloque o original em `_raw/` e acrescente a entrada em `scripts/fotos.py`
-   (id, arquivo, texto alternativo, proporção, larguras, ponto focal).
-2. Rode `python scripts/fotos.py <pasta-do-workspace>` (precisa de Pillow).
-3. Use o `id` nos componentes. Toda foto do site é um "fotograma": cantos de 12px,
-   legenda numerada em versaletes ao lado ou abaixo.
+Confirme que o adaptador/framework de Next.js está habilitado na plataforma. Para hospedagem estritamente estática, adicione `output: "export"` ao `next.config.mjs`, execute `npm run build` e publique a pasta `out/`.
 
 ## Estrutura
 
-```
-app/
-  layout.tsx       Metadados, Open Graph, dados estruturados MedicalClinic, fonte
-  page.tsx         Montagem das seções na ordem do briefing
-  globals.css      Tokens, escala tipográfica, animações
-  icon.png         Favicon e ícone de aplicativo
-components/
-  Cabecalho.tsx    Header fixo, menu no celular, botão de agendamento sempre visível
-  Hero.tsx         Título, subtítulo, botões e os três quadros da tira
-  TiraDeFilme.tsx  A tira de filme: faixa, perfurações, quadros, brilho do quadro em foco
-  Clinica.tsx      Sobre a clínica, com a composição de duas fotos
-  Especialista.tsx Card do Dr. Ruy com painel "Conheça o especialista"
-  Servicos.tsx     Quatro cards de serviços, lista de exames e convênios
-  Avaliacoes.tsx   Nota, total e três depoimentos
-  Contato.tsx      Endereço, telefone, horário, botões e mapa
-  MapaEmbutido.tsx Fachada como capa; o mapa do Google carrega ao clicar
-  Formulario.tsx   Formulário de agendamento com validação e sucesso fictício
-  Rodape.tsx
-  Foto.tsx         Imagem responsiva com srcset, placeholder e altura reservada
-  Botao.tsx        Botão/link nas variantes da marca
-  Revelar.tsx      Revelação na rolagem via IntersectionObserver
-  Logo.tsx         Logo textual
-lib/
-  site.ts  servicos.ts  avaliacoes.ts  fotos.ts
-scripts/
-  fotos.py         Gera os WebP, os placeholders e o lib/fotos.ts
-public/fotos/      WebP em várias larguras; o .json ao lado de cada um registra a origem
-DESIGN.md          Sistema visual documentado: tokens, tipografia, a tira, movimento
-PRODUCT.md         Contexto do produto: público, restrições, o que não inventar
+```text
+app/                    # Página, metadados globais e estilos
+components/             # Seções, UI reutilizável e interações
+lib/                    # Conteúdo e dados centralizados
+public/fotos/           # Imagens WebP responsivas e metadados de origem
+scripts/fotos.py        # Geração de imagens, placeholders e lib/fotos.ts
+PRODUCT.md              # Contexto do produto e restrições de conteúdo
 ```
 
-## Decisões que valem saber
+## Fotos
 
-**Fotos.** As fotos vêm da ficha pública da clínica no Google Maps, em resolução
-original (até 4032 px), mais a foto do médico enviada pelo cliente. Viraram 35
-arquivos WebP em várias larguras (1,6 MB no total), cada um com placeholder borrado
-embutido e dimensões declaradas, então a página não pula ao carregar. Nenhuma foto
-foi gerada por IA; a origem de cada arquivo está registrada no `.json` ao lado dele. A foto de olho
-azul em close enviada junto é imagem de banco e ficou de fora, como o próprio
-briefing pede.
+As imagens são entregues em WebP, em múltiplas larguras, com placeholder e dimensões declaradas para evitar salto de layout. Para adicionar uma foto:
 
-**A tira de filme.** É o momento autoral da página: uma faixa azul-petróleo com
-perfurações, as fotos reais como fotogramas e os três destaques do briefing como
-legenda dos quadros. Ao carregar, os quadros se revelam um por vez, do cinza
-desfocado à cor nítida; o quadro em foco recebe o único brilho verde-água da página.
-No desktop os três quadros cabem inteiros; no celular a tira desliza com encaixe por
-quadro e ganha setas e contador. Nada disso sequestra a rolagem.
+1. Inclua o original em `_raw/`.
+2. Cadastre a imagem em `scripts/fotos.py`.
+3. Execute `python scripts/fotos.py <pasta-do-workspace>` (requer Pillow).
+4. Use o identificador gerado no componente correspondente.
 
-**Mapa sob demanda.** O mapa do Google só carrega quando a pessoa clica. Antes disso,
-a fachada da clínica ocupa o lugar: é o prédio que ela vai procurar na rua.
+## Checklist antes do lançamento
 
-**Conteúdo extra confirmado.** A lista de exames e a linha de convênios vêm de artes
-que a própria clínica publica no Maps e foram incluídas a pedido do cliente, sem logos.
+- [ ] Confirmar endereço, horários, telefones e link do WhatsApp.
+- [ ] Confirmar serviços, convênios, exames, avaliações e depoimentos.
+- [ ] Trocar o domínio de demonstração em `site.url`.
+- [ ] Conectar o formulário a um canal seguro de atendimento.
+- [ ] Criar a política de privacidade se houver coleta de dados pessoais.
+- [ ] Testar os fluxos em celular: WhatsApp, telefone, mapa e formulário.
 
-**Nada inventado.** Não há CRM, formação, tempo de carreira, preços ou certificações
-na página, porque nada disso foi informado. O horário é texto editável, não dado
-confirmado.
+## Saúde e privacidade
 
-## Acessibilidade
+O conteúdo é informativo e não substitui consulta, diagnóstico ou orientação médica. Evite coletar dados clínicos sensíveis no formulário. Caso a página passe a coletar dados pessoais, implemente política de privacidade e fluxos compatíveis com a LGPD.
 
-- Contraste do texto corrido em 14,9:1 e do secundário em 5,7:1, acima da WCAG AA.
-- Verde-água nunca é texto sobre branco; as versões de texto foram medidas.
-- Foco visível em todos os elementos interativos, link "Pular para o conteúdo".
-- Formulário com rótulos acima dos campos, erros inline e mensagem de sucesso
-  anunciada por `role="status"`.
-- Animações desligam com `prefers-reduced-motion`.
+---
 
-## Arquivo do Figma
-
-O sistema visual também está no Figma:
-
-https://www.figma.com/design/nx6CXa6XjxVeNswrS5vYjp
-
-O arquivo tem as 13 cores e os 2 raios como variáveis, os sete estilos de texto em
-Hanken Grotesk, três estilos de efeito (sombras e o brilho do quadro em foco), o
-componente Botão em três variantes, o componente Fotograma em dois estados e uma
-página "Landing" com a primeira dobra do desktop. Os valores são os mesmos do
-`@theme` em `app/globals.css`. As fotos não puderam ser enviadas ao Figma (limite
-de chamadas do plano Starter do Figma); os quadros da primeira dobra estão como
-placeholders azul-claro.
+Desenvolvido para a Visão Assistência Oftalmológica.
