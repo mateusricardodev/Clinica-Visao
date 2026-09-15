@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+/*
+ * Tokens da Visão Assistência Oftalmológica.
+ * Paleta do briefing: branco, azul-petróleo, azul claro e verde-água.
+ * O verde-água só acende no estado ativo (quadro em foco, foco de teclado, status).
+ */
+@theme {
+  --font-sans: var(--fonte-hanken), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+
+  --color-branco: #ffffff;
+  --color-papel: #f3f7f9; /* faixa alternada entre seções */
+  --color-azul-claro: #c9e0ea; /* perfurações, placas, campos */
+  --color-azul-claro-2: #e3eef4; /* placa mais suave */
+  --color-linha: #d7e3ea; /* fio de separação, 1px */
+  --color-petroleo: #0d3b55; /* tinta forte, botão principal, a tira */
+  --color-petroleo-2: #0a2f45; /* pressionado */
+  --color-petroleo-3: #082538; /* borda escura da tira */
+  --color-tinta: #14293a; /* texto corrido, 14,9:1 sobre branco */
+  --color-suave: #4d6b7c; /* texto secundário, 5,7:1 sobre branco */
+  --color-agua: #39a99a; /* brilho e linhas, nunca texto sobre branco */
+  --color-agua-luz: #5ec4b6; /* texto verde-água sobre a tira, 5,7:1 */
+  --color-agua-tinta: #177a6f; /* texto verde-água sobre branco, 5,2:1 */
+  --color-agua-claro: #d9f0ec;
+
+  --radius-quadro: 12px;
+  --radius-controle: 10px;
+
+  --shadow-quadro: 0 24px 48px -24px rgb(13 59 85 / 0.35), 0 2px 6px -2px rgb(13 59 85 / 0.1);
+  --shadow-quadro-alto: 0 32px 56px -24px rgb(13 59 85 / 0.45), 0 4px 10px -4px rgb(13 59 85 / 0.12);
+  --shadow-controle: 0 10px 24px -14px rgb(13 59 85 / 0.55);
+
+  --ease-saida: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-branco);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-feature-settings: "kern", "liga", "calt";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-azul-claro);
+    color: var(--color-petroleo);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-agua);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-petroleo);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  input,
+  select,
+  textarea {
+    caret-color: var(--color-agua-tinta);
+    accent-color: var(--color-petroleo);
+  }
+
+  ::placeholder {
+    color: var(--color-suave);
+    opacity: 1;
+  }
+
+  /* Barra de rolagem da tira e do corpo, na paleta. */
+  * {
+    scrollbar-color: var(--color-azul-claro) transparent;
+    scrollbar-width: thin;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility display {
+  font-size: clamp(2.25rem, 1.2rem + 3.4vw, 3.5rem);
+  line-height: 1.06;
+  font-weight: 550;
+  letter-spacing: -0.022em;
+}
+
+@utility display-2 {
+  font-size: clamp(1.75rem, 1.05rem + 2.1vw, 2.5rem);
+  line-height: 1.12;
+  font-weight: 550;
+  letter-spacing: -0.018em;
+}
+
+@utility display-3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Código de borda da tira: versaletes, tracking largo, numerais tabulares. */
+@utility codigo {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility medida {
+  max-width: 62ch;
+}
+
+/* Fotograma: a moldura padrão de toda foto do site. */
+@utility fotograma {
+  border-radius: var(--radius-quadro);
+  overflow: hidden;
+  background: var(--color-azul-claro-2);
+  box-shadow: var(--shadow-quadro);
+}
+
+/*
+ * Abertura da página: o único momento autoral de entrada.
+ * O texto do hero sobe uma vez, escalonado; a tira revela quadro a quadro.
+ */
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revelar-quadro {
+  from {
+    opacity: 0.4;
+    filter: grayscale(1) blur(10px);
+    transform: scale(1.03);
+  }
+  60% {
+    opacity: 1;
+    filter: grayscale(0.6) blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: grayscale(0) blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes acender {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility abertura {
+  animation: subir 0.8s var(--ease-saida) both;
+  animation-delay: calc(var(--ordem, 0) * 90ms);
+}
+
+@utility revelacao {
+  animation: revelar-quadro 1.3s var(--ease-saida) both;
+  animation-delay: calc(320ms + var(--ordem, 0) * 380ms);
+}
+
+/* Revelação na rolagem: o elemento nasce visível; o JS só liga a classe quando pode animar. */
+.revelar {
+  transition:
+    opacity 0.8s var(--ease-saida),
+    transform 0.8s var(--ease-saida);
+  transition-delay: calc(var(--ordem, 0) * 80ms);
+}
+
+.revelar[data-estado="oculto"] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.revelar[data-direcao="esquerda"][data-estado="oculto"] {
+  transform: translateX(-22px);
+}
+
+.revelar[data-direcao="direita"][data-estado="oculto"] {
+  transform: translateX(22px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abertura,
+  .revelacao {
+    animation: none;
+  }
+
+  .revelar,
+  .revelar[data-estado="oculto"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
