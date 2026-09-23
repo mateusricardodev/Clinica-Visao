@@ -32,7 +32,7 @@ export function MapaEmbutido() {
               <button
                 type="button"
                 onClick={() => setCarregado(true)}
-                className="inline-flex h-12 items-center gap-2.5 rounded-[var(--radius-controle)] bg-branco px-5 text-[0.9375rem] font-semibold text-petroleo shadow-controle transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-azul-claro-2 active:translate-y-px motion-reduce:transition-none"
+                className="inline-flex h-12 items-center gap-2.5 rounded-[var(--radius-controle)] bg-branco px-5 text-[0.9375rem] font-semibold text-petroleo shadow-controle transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-petroleo hover:text-branco active:translate-y-px motion-reduce:transition-none"
               >
                 <MapTrifold size={20} weight="regular" aria-hidden="true" />
                 Ver no mapa

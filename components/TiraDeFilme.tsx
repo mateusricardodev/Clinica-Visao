@@ -76,7 +76,7 @@ export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
   );
 
   const botao =
-    "inline-flex size-11 items-center justify-center rounded-[var(--radius-controle)] border border-linha bg-branco text-petroleo transition-[background-color,transform] duration-300 hover:bg-azul-claro-2 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-branco";
+    "inline-flex size-11 items-center justify-center rounded-[var(--radius-controle)] border border-linha bg-branco text-petroleo transition-[background-color,border-color,color,transform] duration-300 hover:border-petroleo hover:bg-petroleo hover:text-branco active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-linha disabled:hover:bg-branco disabled:hover:text-petroleo";
 
   const controles = (
     <div className="flex items-center gap-4" role="group" aria-label="Navegar pelos quadros">
