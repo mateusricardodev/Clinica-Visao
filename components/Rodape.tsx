@@ -26,15 +26,15 @@ export function Rodape() {
                   {site.telefone.exibicao}
                 </a>
               </p>
-              <p>
+              <p className="pt-2">
                 <a
                   href={site.instagram.url}
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 rounded-md text-branco underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:text-agua-luz hover:decoration-agua-luz"
+                  aria-label={`Instagram do ${site.medico} (${site.instagram.usuario})`}
+                  className="inline-flex size-11 items-center justify-center rounded-full border border-branco/25 text-branco transition-colors hover:border-branco hover:bg-branco hover:text-petroleo"
                 >
-                  <InstagramLogo size={20} weight="regular" aria-hidden="true" />
-                  {site.instagram.usuario}
+                  <InstagramLogo size={22} weight="regular" aria-hidden="true" />
                 </a>
               </p>
             </address>
