@@ -15,7 +15,7 @@ O projeto apresenta a clínica com clareza, fortalece a credibilidade da marca e
 - Recursos de acessibilidade: contraste, foco visível, rótulos de formulário, link de salto e `prefers-reduced-motion`.
 
 > [!IMPORTANT]
-> Este projeto é apenas front-end. O formulário exibe uma confirmação, mas ainda não envia dados para e-mail, CRM ou WhatsApp. Antes da publicação, valide os dados da clínica e conecte o formulário a um serviço seguro.
+> Este projeto é apenas front-end. O formulário de agendamento não guarda dados: ao enviar, abre o WhatsApp da clínica com o pedido já escrito, e a pessoa confirma o envio por lá.
 
 ## Stack
 

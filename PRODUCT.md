@@ -25,7 +25,7 @@ Clínica de bairro consolidada (Vila Adyana), com médico que atende os mesmos p
 ## Operating Context
 
 - Endereço: Rua Engenheiro João Fonseca, 49, Vila Adyana, São José dos Campos - SP, 12243-620.
-- Telefone fixo: (12) 3942-4782. Confirmado pelo usuário: os botões de WhatsApp usam o mesmo número (wa.me/551239424782).
+- Telefone fixo: (12) 3942-4782, só para ligações. WhatsApp para agendar, informado pelo usuário: (12) 98209-8960 (wa.me/5512982098960). Todos os botões de WhatsApp e o formulário de agendamento vão para ele.
 - Horário: o briefing pede o status "Aberto · fecha às 18:00" como informação editável; a ficha do Maps mostra abertura às 08:00 em dia útil. Tratar como dado editável em um único lugar do código, não como verdade confirmada.
 - Site atual listado no Maps: intermedicos.com.br (não respondeu ao acesso; não usado como fonte).
 - Ficha do Google Maps: https://maps.app.goo.gl/mxtThmv9pPowLzfJ9 (fonte das fotos e das avaliações).

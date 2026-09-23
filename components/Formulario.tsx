@@ -42,14 +42,29 @@ const campo =
 const campoOk = "border-linha";
 const campoErro = "border-[#b3261e] focus:ring-[#b3261e]/20";
 
+/** Monta a mensagem do WhatsApp com os dados do pedido, só com o que foi preenchido. */
+function mensagemDoPedido(c: Campos) {
+  const linhas = [
+    "Olá! Gostaria de agendar uma consulta na Visão Assistência Oftalmológica.",
+    "",
+    `Nome: ${c.nome.trim()}`,
+    `Telefone: ${c.telefone}`,
+  ];
+  if (c.email.trim()) linhas.push(`E-mail: ${c.email.trim()}`);
+  linhas.push(`Melhor horário: ${c.horario}`);
+  if (c.mensagem.trim()) linhas.push("", c.mensagem.trim());
+  return linhas.join("\n");
+}
+
 /**
- * Formulário de agendamento. Só front-end: valida, simula o envio e mostra
- * a confirmação fictícia. Diz o que acontece depois antes de a pessoa enviar.
+ * Formulário de agendamento. Valida e, ao enviar, abre o WhatsApp da clínica
+ * com o pedido já escrito; a pessoa só confirma o envio por lá.
  */
 export function Formulario() {
   const [campos, setCampos] = useState<Campos>(vazio);
   const [erros, setErros] = useState<Erros>({});
-  const [estado, setEstado] = useState<"pronto" | "enviando" | "enviado">("pronto");
+  const [estado, setEstado] = useState<"pronto" | "enviado">("pronto");
+  const [linkPedido, setLinkPedido] = useState("");
   const id = useId();
 
   function atualizar<K extends keyof Campos>(chave: K, valor: Campos[K]) {
@@ -66,9 +81,11 @@ export function Formulario() {
       document.getElementById(`${id}-${primeiro}`)?.focus();
       return;
     }
-    setEstado("enviando");
-    // Simulação: não há backend. O tempo dá a sensação de envio real.
-    window.setTimeout(() => setEstado("enviado"), 1100);
+    const link = linkWhatsApp(mensagemDoPedido(campos));
+    setLinkPedido(link);
+    // Aberto no próprio clique, para o navegador não bloquear a nova aba.
+    window.open(link, "_blank", "noopener");
+    setEstado("enviado");
   }
 
   const rotulo = "mb-2 block text-[0.9375rem] font-semibold text-petroleo";
@@ -99,7 +116,7 @@ export function Formulario() {
                 className="inline-flex items-center gap-3 rounded-md font-semibold text-petroleo underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:decoration-agua"
               >
                 <WhatsappLogo size={22} weight="regular" aria-hidden="true" />
-                WhatsApp {site.telefone.exibicao}
+                WhatsApp {site.whatsapp.exibicao}
               </a>
             </li>
             <li>
@@ -122,18 +139,27 @@ export function Formulario() {
               aria-live="polite"
             >
               <CheckCircle size={44} weight="fill" aria-hidden="true" className="text-agua" />
-              <h3 className="display-3 mt-5 text-[1.5rem]">Pedido recebido, {campos.nome.trim().split(" ")[0]}</h3>
+              <h3 className="display-3 mt-5 text-[1.5rem]">Quase lá, {campos.nome.trim().split(" ")[0]}</h3>
               <p className="medida mt-3 text-suave">
-                A equipe da Visão entra em contato pelo telefone {campos.telefone} para confirmar o horário.
-                Este é um site de demonstração: nenhum dado foi enviado.
+                Abrimos o WhatsApp da clínica com o seu pedido já escrito. É só enviar a mensagem por lá, e a
+                equipe da Visão responde para confirmar dia e horário.
               </p>
-              <div className="mt-7">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <Botao
+                  href={linkPedido}
+                  target="_blank"
+                  rel="noopener"
+                  icone={<WhatsappLogo size={22} weight="regular" aria-hidden="true" />}
+                >
+                  Abrir o WhatsApp de novo
+                </Botao>
                 <Botao
                   variante="secundario"
                   onClick={() => {
                     setCampos(vazio);
                     setErros({});
                     setEstado("pronto");
+                    setLinkPedido("");
                   }}
                 >
                   Fazer outro pedido
@@ -145,7 +171,6 @@ export function Formulario() {
               onSubmit={enviar}
               noValidate
               className="rounded-[var(--radius-quadro)] bg-branco p-6 shadow-quadro sm:p-8 lg:p-10"
-              aria-busy={estado === "enviando"}
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
@@ -239,10 +264,10 @@ export function Formulario() {
 
               <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-[0.875rem] leading-relaxed text-suave">
-                  Sem compromisso. A confirmação vem por telefone ou WhatsApp.
+                  Sem compromisso. O pedido segue pelo WhatsApp da clínica, {site.whatsapp.exibicao}.
                 </p>
-                <Botao type="submit" disabled={estado === "enviando"} className="disabled:cursor-wait disabled:opacity-70">
-                  {estado === "enviando" ? "Enviando pedido..." : "Solicitar agendamento"}
+                <Botao type="submit" icone={<WhatsappLogo size={22} weight="regular" aria-hidden="true" />}>
+                  Solicitar agendamento
                 </Botao>
               </div>
             </form>
