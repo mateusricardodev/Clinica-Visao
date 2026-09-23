@@ -221,24 +221,10 @@
   transform: translateX(22px);
 }
 
-/* Letreiro dos convênios: a faixa anda metade da largura (uma lista inteira) e recomeça. */
-@keyframes passar {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.letreiro-faixa {
-  animation: passar 40s linear infinite;
-}
-
-.letreiro:hover .letreiro-faixa {
-  animation-play-state: paused;
-}
-
+/* Letreiro dos convênios: o movimento e o arrasto ficam no JS (CarrosselConvenios). */
 @media (prefers-reduced-motion: reduce) {
   .letreiro-faixa {
-    animation: none;
+    transform: none !important;
     width: auto;
     flex-wrap: wrap;
     justify-content: center;
