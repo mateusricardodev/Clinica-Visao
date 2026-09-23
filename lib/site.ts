@@ -44,11 +44,20 @@ export const site = {
     lng: -45.8912142,
   },
 
-  // Informação editável. O briefing pede este texto como status visual;
-  // ajuste conforme o horário real de funcionamento.
+  // Horário da ficha do Google Maps. Índice = dia da semana (0 = domingo).
+  // Cada dia é uma lista de turnos [abre, fecha]; lista vazia = fechado.
+  // O status "Aberto / Fechado" do site é calculado a partir daqui, no fuso da clínica.
   horario: {
-    status: "Aberto",
-    detalhe: "fecha às 18:00",
+    fuso: "America/Sao_Paulo",
+    semana: [
+      [],
+      [["08:00", "12:30"], ["13:30", "18:00"]],
+      [["08:00", "12:30"], ["13:30", "18:00"]],
+      [["08:00", "12:30"], ["13:30", "18:00"]],
+      [["08:00", "12:30"], ["13:30", "18:00"]],
+      [["08:00", "12:00"], ["13:30", "16:45"]],
+      [],
+    ],
   },
 
   mapa: {

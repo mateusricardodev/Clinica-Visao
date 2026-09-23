@@ -1,11 +1,12 @@
 import { Clock, MapPin, NavigationArrow, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { linkWhatsApp, site } from "@/lib/site";
 import { Botao } from "./Botao";
+import { HorarioStatus } from "./HorarioStatus";
 import { MapaEmbutido } from "./MapaEmbutido";
 import { Revelar } from "./Revelar";
 
 export function Contato() {
-  const { endereco, telefone, horario } = site;
+  const { endereco, telefone } = site;
   return (
     <section id="contato" className="scroll-mt-[72px] py-20 sm:py-28" aria-labelledby="titulo-contato">
       <div className="mx-auto grid max-w-[1280px] gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
@@ -44,8 +45,7 @@ export function Contato() {
               <dt className="sr-only">Horário</dt>
               <Clock size={24} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-petroleo" />
               <dd className="text-tinta">
-                <span className="font-semibold text-agua-tinta">{horario.status}</span>
-                <span className="text-suave"> · {horario.detalhe}</span>
+                <HorarioStatus />
               </dd>
             </div>
           </dl>
