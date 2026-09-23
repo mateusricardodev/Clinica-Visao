@@ -94,6 +94,7 @@ export const site = {
     { rotulo: "Clínica", href: "#clinica" },
     { rotulo: "Especialistas", href: "#especialistas" },
     { rotulo: "Avaliações", href: "#avaliacoes" },
+    { rotulo: "Dúvidas", href: "#duvidas" },
     { rotulo: "Contato", href: "#contato" },
   ],
 } as const;

@@ -1,6 +1,7 @@
 import { ArrowUpRight, Star, User } from "@phosphor-icons/react/dist/ssr";
 import { avaliacoes } from "@/lib/avaliacoes";
 import { site } from "@/lib/site";
+import { Botao } from "./Botao";
 import { Revelar } from "./Revelar";
 
 // Cor do selo de cada depoimento, em rodízio, como os avatares de e-mail.
@@ -87,6 +88,19 @@ export function Avaliacoes() {
             </Revelar>
           ))}
         </ul>
+
+        <Revelar className="mt-12 flex justify-center">
+          <Botao
+            href={site.mapa.ficha}
+            variante="secundario"
+            tamanho="compacto"
+            icone={<Star size={18} weight="fill" aria-hidden="true" />}
+            target="_blank"
+            rel="noopener"
+          >
+            Avalie sua consulta
+          </Botao>
+        </Revelar>
       </div>
     </section>
   );

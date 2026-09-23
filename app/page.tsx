@@ -1,8 +1,10 @@
 import { Avaliacoes } from "@/components/Avaliacoes";
+import { BotaoFlutuanteWhatsApp } from "@/components/BotaoFlutuanteWhatsApp";
 import { Cabecalho } from "@/components/Cabecalho";
 import { Clinica } from "@/components/Clinica";
 import { Contato } from "@/components/Contato";
 import { Especialista } from "@/components/Especialista";
+import { Faq } from "@/components/Faq";
 import { Formulario } from "@/components/Formulario";
 import { Hero } from "@/components/Hero";
 import { Rodape } from "@/components/Rodape";
@@ -26,10 +28,12 @@ export default function Pagina() {
         <Clinica />
         <Especialista />
         <Avaliacoes />
+        <Faq />
         <Contato />
         <Formulario />
       </main>
       <Rodape />
+      <BotaoFlutuanteWhatsApp />
     </>
   );
 }
