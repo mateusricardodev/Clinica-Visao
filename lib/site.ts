@@ -61,7 +61,7 @@ export const site = {
   },
 
   // Lista publicada pela própria clínica na ficha do Maps.
-  // A logo de cada um é lida de public/convenios/<id>.svg (ou .png/.webp);
+  // A logo de cada um é lida de public/convenios/<id>.svg (ou .png/.webp/.jpg; `npm run logos` baixa);
   // sem arquivo, o carrossel mostra o nome.
   convenios: [
     { id: "mediservice", nome: "Mediservice" },

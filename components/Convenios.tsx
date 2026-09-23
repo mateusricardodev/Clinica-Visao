@@ -5,7 +5,7 @@ import { Botao } from "./Botao";
 import { CarrosselConvenios, type Convenio } from "./CarrosselConvenios";
 import { Revelar } from "./Revelar";
 
-const extensoes = ["svg", "png", "webp"];
+const extensoes = ["svg", "png", "webp", "jpg"];
 
 // Procura a logo em public/convenios/ na hora do build; sem arquivo, fica o nome.
 function logoDe(id: string) {

@@ -81,7 +81,8 @@ app/                    # Página, metadados globais e estilos
 components/             # Seções, UI reutilizável e interações
 lib/                    # Conteúdo e dados centralizados
 public/fotos/           # Imagens WebP responsivas e metadados de origem
-public/convenios/       # Logos dos convênios: <id>.svg, .png ou .webp (ids em lib/site.ts)
+public/convenios/       # Logos dos convênios: <id>.svg, .png, .webp ou .jpg (ids em lib/site.ts)
+scripts/baixar-logos.mjs # npm run logos: baixa as logos dos convênios para public/convenios/
 scripts/fotos.py        # Geração de imagens, placeholders e lib/fotos.ts
 PRODUCT.md              # Contexto do produto e restrições de conteúdo
 ```
