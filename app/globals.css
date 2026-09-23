@@ -221,6 +221,34 @@
   transform: translateX(22px);
 }
 
+/* Letreiro dos convênios: a faixa anda metade da largura (uma lista inteira) e recomeça. */
+@keyframes passar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.letreiro-faixa {
+  animation: passar 40s linear infinite;
+}
+
+.letreiro:hover .letreiro-faixa {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letreiro-faixa {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .letreiro-faixa .copia {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .abertura,
   .revelacao {
