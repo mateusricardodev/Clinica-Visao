@@ -42,7 +42,6 @@ export function MapaEmbutido() {
         )}
       </div>
       <figcaption className="codigo mt-4 flex items-baseline gap-3 text-suave">
-        <span className="text-petroleo">07</span>
         {carregado ? "Mapa do Google" : `Fachada, ${site.endereco.rua}`}
       </figcaption>
     </figure>

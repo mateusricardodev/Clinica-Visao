@@ -153,9 +153,6 @@ export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
                   />
                 </div>
                 <figcaption className="codigo relative mt-4 flex items-baseline gap-3">
-                  <span className={`transition-colors duration-500 ${emFoco ? "text-branco" : "text-azul-claro/70"}`}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <span className={`transition-colors duration-500 ${emFoco ? "text-branco" : "text-azul-claro/80"}`}>
                     {q.legenda}
                   </span>

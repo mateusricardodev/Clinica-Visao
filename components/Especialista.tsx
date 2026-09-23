@@ -35,7 +35,6 @@ export function Especialista() {
                 <Foto foto={fotos["dr-ruy"]} sizes="(min-width: 768px) 360px, 100vw" aspecto="1 / 1" posicao="center 30%" />
               </div>
               <figcaption className="codigo flex flex-1 items-baseline gap-3 px-5 py-4 text-suave">
-                <span className="text-petroleo">05</span>
                 Dr. Ruy, sala de exames
               </figcaption>
             </figure>
