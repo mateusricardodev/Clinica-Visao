@@ -71,7 +71,7 @@ export function Cabecalho() {
           </Botao>
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-[var(--radius-controle)] border border-linha bg-branco text-petroleo transition-colors hover:bg-azul-claro-2 lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-[var(--radius-controle)] border border-linha bg-branco text-petroleo transition-colors hover:border-petroleo hover:bg-petroleo hover:text-branco lg:hidden"
             aria-expanded={aberto}
             aria-controls={idMenu}
             aria-label={aberto ? "Fechar menu" : "Abrir menu"}

@@ -8,12 +8,12 @@ const base =
 
 const variantes: Record<Variante, string> = {
   primario:
-    "bg-petroleo text-branco shadow-controle hover:bg-petroleo-2 hover:-translate-y-0.5 hover:shadow-quadro",
+    "bg-petroleo text-branco shadow-controle hover:bg-agua-tinta hover:-translate-y-0.5 hover:shadow-quadro",
   secundario:
-    "bg-branco text-petroleo border border-petroleo/35 hover:border-petroleo hover:-translate-y-0.5 hover:shadow-controle",
-  claro: "bg-branco text-petroleo hover:bg-azul-claro-2 hover:-translate-y-0.5 hover:shadow-controle",
+    "bg-branco text-petroleo border border-petroleo/35 hover:border-petroleo hover:bg-petroleo hover:text-branco hover:-translate-y-0.5 hover:shadow-controle",
+  claro: "bg-branco text-petroleo hover:bg-agua-claro hover:text-agua-tinta hover:-translate-y-0.5 hover:shadow-controle",
   "contorno-claro":
-    "bg-transparent text-branco border border-branco/45 hover:border-branco hover:bg-branco/10 hover:-translate-y-0.5",
+    "bg-transparent text-branco border border-branco/45 hover:border-branco hover:bg-branco hover:text-petroleo hover:-translate-y-0.5",
 };
 
 const tamanhos: Record<Tamanho, string> = {

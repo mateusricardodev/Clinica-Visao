@@ -1,8 +1,6 @@
 // Dados da clínica. Tudo o que aparece na página sai daqui.
 // Troque aqui e a alteração vale para o site inteiro.
 
-const telefoneNumeros = "551239424782";
-
 export const site = {
   nome: "Visão Assistência Oftalmológica",
   nomeCurto: "Visão",
@@ -19,13 +17,20 @@ export const site = {
     tel: "+551239424782",
   },
 
+  // Celular para agendar: todos os botões de WhatsApp e o formulário vão para ele.
+  // O fixo acima fica para ligações.
   whatsapp: {
-    // Confirmado pelo cliente: o WhatsApp usa o mesmo número do fixo.
-    base: `https://wa.me/${telefoneNumeros}`,
+    exibicao: "(12) 98209-8960",
+    base: "https://wa.me/5512982098960",
     mensagens: {
       geral: "Olá! Gostaria de agendar uma consulta na Visão Assistência Oftalmológica.",
       especialista: "Olá! Gostaria de agendar uma consulta com o Dr. Ruy dos Santos Filho.",
     },
+  },
+
+  instagram: {
+    usuario: "@drruysfilho",
+    url: "https://www.instagram.com/drruysfilho/",
   },
 
   endereco: {
