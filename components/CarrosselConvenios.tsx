@@ -7,7 +7,19 @@ export type Convenio = {
   nome: string;
   /** Caminho da logo em /public; sem logo, mostra o nome. */
   logo?: string;
+  /** Largura ÷ altura da logo. */
+  proporcao?: number;
 };
+
+// Área comum (px²) de cada logo: largas ficam baixas, quadradas ficam altas, e o peso se equilibra.
+const AREA = 9000;
+const ALTURA_MAX = 80;
+
+function tamanho(proporcao?: number) {
+  if (!proporcao) return undefined;
+  const altura = Math.min(ALTURA_MAX, Math.sqrt(AREA / proporcao));
+  return { width: `${Math.round(altura * proporcao)}px`, height: "auto" };
+}
 
 const seta =
   "inline-flex size-11 shrink-0 items-center justify-center rounded-full text-petroleo transition-[background-color,opacity] duration-300 hover:bg-azul-claro-2 disabled:pointer-events-none disabled:opacity-25";
@@ -61,7 +73,13 @@ export function CarrosselConvenios({ itens }: { itens: Convenio[] }) {
           >
             {c.logo ? (
               // eslint-disable-next-line @next/next/no-img-element -- logos pequenas e vetoriais, sem otimização
-              <img src={c.logo} alt={c.nome} loading="lazy" className="max-h-20 w-auto max-w-full object-contain" />
+              <img
+                src={c.logo}
+                alt={c.nome}
+                loading="lazy"
+                style={tamanho(c.proporcao)}
+                className="max-h-20 max-w-full object-contain"
+              />
             ) : (
               <span className="text-center text-[1.25rem] font-semibold leading-tight text-petroleo sm:text-[1.375rem]">
                 {c.nome}
