@@ -11,7 +11,7 @@ const pontos = [
 
 export function Clinica() {
   return (
-    <section id="clinica" className="scroll-mt-[72px] py-20 sm:py-28" aria-labelledby="titulo-clinica">
+    <section id="clinica" className="scroll-mt-[72px] bg-papel py-20 sm:py-28" aria-labelledby="titulo-clinica">
       <div className="mx-auto grid max-w-[1280px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <Revelar>
@@ -35,7 +35,7 @@ export function Clinica() {
 
         <div className="lg:col-span-7">
           <Revelar as="figure" direcao="direita">
-            <div className="relative mb-8">
+            <div className="relative">
             <div className="fotograma ml-auto w-[88%] sm:w-[84%]">
               <Foto
                 foto={fotos["recepcao-2"]}
@@ -49,7 +49,7 @@ export function Clinica() {
               <Foto foto={fotos["poltronas"]} sizes="(min-width: 1024px) 280px, 40vw" aspecto="3 / 4" />
             </div>
             </div>
-            <figcaption className="codigo mt-8 flex items-baseline gap-3 text-suave">
+            <figcaption className="codigo mt-16 flex items-baseline gap-3 text-suave">
               <span className="text-petroleo">04</span>
               Recepção e sala de espera
             </figcaption>
