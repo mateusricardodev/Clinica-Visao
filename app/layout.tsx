@@ -45,9 +45,10 @@ export const viewport: Viewport = {
 
 /**
  * Dados estruturados com o que está confirmado: nome, médico, endereço,
- * telefone, nota e total de avaliações (da ficha pública). Sem horário,
- * porque ele ainda é um dado editável, e sem preços.
+ * telefone, horário, nota e total de avaliações (da ficha pública). Sem preços.
  */
+const diasSchema = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 const dadosEstruturados = {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
@@ -67,6 +68,14 @@ const dadosEstruturados = {
     addressCountry: "BR",
   },
   geo: { "@type": "GeoCoordinates", latitude: site.endereco.lat, longitude: site.endereco.lng },
+  openingHoursSpecification: site.horario.semana.flatMap((turnos, dia) =>
+    turnos.map(([opens, closes]) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: diasSchema[dia],
+      opens,
+      closes,
+    })),
+  ),
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: site.avaliacoes.notaNumero,
