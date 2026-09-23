@@ -50,7 +50,6 @@ export function Clinica() {
             </div>
             </div>
             <figcaption className="codigo mt-16 flex items-baseline gap-3 text-suave">
-              <span className="text-petroleo">04</span>
               Recepção e sala de espera
             </figcaption>
           </Revelar>

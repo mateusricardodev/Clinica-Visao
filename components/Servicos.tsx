@@ -63,7 +63,6 @@ export function Servicos() {
                         />
                       </div>
                       <figcaption className="codigo flex items-baseline gap-3 border-b border-linha px-7 py-3 text-suave sm:border-b-0 sm:border-r lg:border-b lg:border-r-0 sm:px-8">
-                        <span className="text-petroleo">06</span>
                         Lâmpada de fenda
                       </figcaption>
                     </figure>
