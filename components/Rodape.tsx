@@ -1,3 +1,4 @@
+import { InstagramLogo } from "@phosphor-icons/react/dist/ssr";
 import { enderecoLinha, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
@@ -23,6 +24,17 @@ export function Rodape() {
                   className="tabular rounded-md text-branco underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:decoration-agua-luz"
                 >
                   {site.telefone.exibicao}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={site.instagram.url}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2 rounded-md text-branco underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:text-agua-luz hover:decoration-agua-luz"
+                >
+                  <InstagramLogo size={20} weight="regular" aria-hidden="true" />
+                  {site.instagram.usuario}
                 </a>
               </p>
             </address>

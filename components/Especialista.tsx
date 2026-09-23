@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { ArrowDown, WhatsappLogo } from "@phosphor-icons/react";
+import { ArrowDown, InstagramLogo, WhatsappLogo } from "@phosphor-icons/react";
 import { fotos } from "@/lib/fotos";
 import { servicos } from "@/lib/servicos";
 import { linkWhatsApp, site } from "@/lib/site";
@@ -63,6 +63,16 @@ export function Especialista() {
                 >
                   Conheça o especialista
                 </Botao>
+                <a
+                  href={site.instagram.url}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`Instagram do ${site.medico} (${site.instagram.usuario})`}
+                  className="inline-flex h-13 items-center justify-center gap-2.5 rounded-[var(--radius-controle)] border border-petroleo/35 px-5 font-semibold text-petroleo transition-[transform,box-shadow,background-color,border-color,color] duration-300 [transition-timing-function:var(--ease-saida)] hover:-translate-y-0.5 hover:border-petroleo hover:bg-petroleo hover:text-branco hover:shadow-controle active:translate-y-px motion-reduce:transition-none"
+                >
+                  <InstagramLogo size={24} weight="regular" aria-hidden="true" />
+                  <span className="text-[1.0625rem]">{site.instagram.usuario}</span>
+                </a>
               </div>
 
               <div

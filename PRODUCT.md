@@ -55,7 +55,7 @@ Clínica de bairro consolidada (Vila Adyana), com médico que atende os mesmos p
 - Foto do Dr. Ruy: única versão disponível tem 530 x 530 px (enviada pelo usuário). Confirmado: usar assim mesmo, em tamanho contido; trocar depois se houver versão maior.
 - Foto de olho azul em close (750 x 500) enviada pelo usuário: imagem de banco genérica; o próprio briefing veta imagens genéricas de banco, então não usar.
 - Avaliações: nota 4,9 e 118 avaliações visíveis na ficha do Maps em 14/09/2026; três depoimentos textuais no briefing, sem nomes dos autores.
-- Não existe: foto da equipe de recepção, dados de horário confirmados, e-mail da clínica, Instagram, CRM do médico, preços, lista de convênios atualizada além da arte antiga.
+- Não existe: foto da equipe de recepção, dados de horário confirmados, e-mail da clínica, CRM do médico, preços, lista de convênios atualizada além da arte antiga.
 
 ## Product Principles
 

@@ -73,7 +73,12 @@ const dadosEstruturados = {
     reviewCount: site.avaliacoes.total,
     bestRating: 5,
   },
-  employee: { "@type": "Physician", name: site.medico, medicalSpecialty: "Ophthalmologic" },
+  employee: {
+    "@type": "Physician",
+    name: site.medico,
+    medicalSpecialty: "Ophthalmologic",
+    sameAs: [site.instagram.url],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

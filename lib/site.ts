@@ -28,6 +28,11 @@ export const site = {
     },
   },
 
+  instagram: {
+    usuario: "@drruysfilho",
+    url: "https://www.instagram.com/drruysfilho/",
+  },
+
   endereco: {
     rua: "Rua Engenheiro João Fonseca, 49",
     bairro: "Vila Adyana",
