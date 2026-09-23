@@ -18,17 +18,11 @@ type Props = {
   children: ReactNode;
 };
 
-// Perfuração do filme: retângulo arredondado, azul claro translúcido para o brilho passar.
-const perfuracoes =
-  "url(\"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2740%27 height=%2728%27 viewBox=%270 0 40 28%27%3E%3Crect x=%2713%27 y=%276%27 width=%2714%27 height=%2716%27 rx=%273%27 fill=%27%23c9e0ea%27 fill-opacity=%270.82%27/%3E%3C/svg%3E\")";
-
 const recuo = "max(var(--gutter), calc((100% - 1280px) / 2 + 2rem))";
 
 /**
- * A tira de filme: faixa azul-petróleo de ponta a ponta, perfurações em cima e
- * embaixo, e as fotos reais da clínica como fotogramas. Rola na horizontal com
- * encaixe por quadro; nunca sequestra a rolagem da página. O quadro em foco é o
- * único lugar da página onde o verde-água acende (o vazamento de luz).
+ * A faixa de fotos: azul-petróleo de ponta a ponta, com as fotos reais da clínica.
+ * Rola na horizontal com encaixe por quadro; nunca sequestra a rolagem da página.
  */
 export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
   const scroller = useRef<HTMLDivElement>(null);
@@ -120,33 +114,20 @@ export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
       </div>
 
       <div className="relative mt-10 bg-petroleo sm:mt-12">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-7 bg-repeat-x"
-          style={{ backgroundImage: perfuracoes, backgroundPosition: "center" }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-7 bg-repeat-x"
-          style={{ backgroundImage: perfuracoes, backgroundPosition: "center" }}
-        />
-        {/* Código de borda carimbado no leader: o lugar, que o título pinado não diz. */}
+        {/* O lugar, que o título não diz. */}
         <p
           className="codigo pointer-events-none absolute left-0 right-0 top-8 z-10 truncate text-azul-claro/70"
           style={{ paddingInline: recuo }}
         >
           {codigoDeBorda}
         </p>
-        {/* Filete escuro nas bordas, como a borda do filme. */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-petroleo-3" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-petroleo-3" />
 
         <div
           ref={scroller}
           tabIndex={0}
           role="region"
           aria-label="Fotos da clínica, quadro a quadro"
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto overflow-y-hidden pb-10 pt-14 [scrollbar-width:none] focus-visible:outline-none [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto overflow-y-hidden pb-10 pt-16 [scrollbar-width:none] focus-visible:outline-none [&::-webkit-scrollbar]:hidden"
           style={{ paddingInline: recuo, scrollPaddingInline: recuo }}
         >
           {quadros.map((q, i) => {
@@ -159,17 +140,8 @@ export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
                 data-ativo={emFoco || undefined}
                 className="group relative shrink-0 snap-start w-[clamp(272px,82vw,584px)] lg:w-[calc((100%-3rem)/3)]"
               >
-                {/* Vazamento de luz: verde-água que escapa pelas perfurações do quadro em foco. */}
                 <div
-                  aria-hidden="true"
-                  className={`pointer-events-none absolute -inset-x-6 -inset-y-10 bg-[radial-gradient(70%_55%_at_50%_0%,rgb(57_169_154/0.75),transparent_72%),radial-gradient(70%_55%_at_50%_100%,rgb(57_169_154/0.75),transparent_72%)] blur-sm transition-opacity duration-700 [transition-timing-function:var(--ease-saida)] motion-reduce:transition-none ${emFoco ? "opacity-100" : "opacity-0"}`}
-                />
-                <div
-                  className={`revelacao fotograma relative aspect-[4/3] transition-[box-shadow] duration-700 motion-reduce:transition-none ${
-                    emFoco
-                      ? "shadow-[0_0_0_2px_rgb(94_196_182/0.9),0_0_36px_2px_rgb(57_169_154/0.45),0_24px_60px_-20px_rgb(0_0_0/0.6)]"
-                      : "shadow-[0_0_0_1px_rgb(255_255_255/0.12)]"
-                  }`}
+                  className="revelacao fotograma relative aspect-[4/3] shadow-[0_24px_60px_-20px_rgb(0_0_0/0.6)]"
                   style={{ "--ordem": i } as CSSProperties}
                 >
                   <Foto
@@ -179,13 +151,9 @@ export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
                     prioridade={i === 0}
                     className="transition-transform duration-[1200ms] [transition-timing-function:var(--ease-saida)] group-hover:scale-[1.025] motion-reduce:transition-none"
                   />
-                  <div
-                    aria-hidden="true"
-                    className={`pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgb(57_169_154/0.35),transparent_22%,transparent_78%,rgb(57_169_154/0.35))] mix-blend-screen transition-opacity duration-700 motion-reduce:transition-none ${emFoco ? "opacity-100" : "opacity-0"}`}
-                  />
                 </div>
                 <figcaption className="codigo relative mt-4 flex items-baseline gap-3">
-                  <span className={`transition-colors duration-500 ${emFoco ? "text-agua-luz" : "text-azul-claro/70"}`}>
+                  <span className={`transition-colors duration-500 ${emFoco ? "text-branco" : "text-azul-claro/70"}`}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className={`transition-colors duration-500 ${emFoco ? "text-branco" : "text-azul-claro/80"}`}>

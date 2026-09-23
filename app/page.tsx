@@ -22,9 +22,9 @@ export default function Pagina() {
       <Cabecalho />
       <main id="conteudo">
         <Hero />
+        <Servicos />
         <Clinica />
         <Especialista />
-        <Servicos />
         <Avaliacoes />
         <Contato />
         <Formulario />

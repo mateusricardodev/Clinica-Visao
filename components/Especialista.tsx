@@ -20,7 +20,7 @@ export function Especialista() {
   const idPainel = useId();
 
   return (
-    <section id="especialistas" className="scroll-mt-[72px] bg-papel py-20 sm:py-28" aria-labelledby="titulo-especialista">
+    <section id="especialistas" className="scroll-mt-[72px] py-20 sm:py-28" aria-labelledby="titulo-especialista">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
         <Revelar>
           <h2 id="titulo-especialista" className="display-2">
@@ -28,7 +28,7 @@ export function Especialista() {
           </h2>
         </Revelar>
 
-        <Revelar as="article" ordem={1} className="mt-10 overflow-hidden rounded-[var(--radius-quadro)] bg-branco shadow-quadro">
+        <Revelar as="article" ordem={1} className="mt-10 overflow-hidden rounded-[var(--radius-quadro)] bg-branco shadow-quadro ring-1 ring-linha">
           <div className="grid md:grid-cols-[minmax(0,360px)_1fr]">
             <figure className="flex flex-col bg-azul-claro-2">
               <div className="mx-auto w-full max-w-[360px] md:max-w-none">
