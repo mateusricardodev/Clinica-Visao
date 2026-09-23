@@ -53,11 +53,12 @@ export function Servicos() {
                 {foto ? (
                   <div className="grid h-full sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-[minmax(0,1fr)_auto]">
                     <figure className="flex flex-col">
-                      <div className="relative min-h-[220px] flex-1 overflow-hidden sm:min-h-[260px]">
+                      <div className="relative min-h-[240px] flex-1 overflow-hidden sm:min-h-[300px] lg:min-h-[380px]">
                         <Foto
                           foto={foto}
                           sizes="(min-width: 1024px) 700px, (min-width: 640px) 50vw, 100vw"
                           preencher
+                          posicao="center 22%"
                           className="transition-transform duration-[1200ms] [transition-timing-function:var(--ease-saida)] group-hover:scale-[1.03] motion-reduce:transition-none"
                         />
                       </div>
