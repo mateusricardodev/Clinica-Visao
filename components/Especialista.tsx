@@ -21,7 +21,7 @@ export function Especialista() {
 
   return (
     <section id="especialistas" className="scroll-mt-[72px] py-20 sm:py-28" aria-labelledby="titulo-especialista">
-      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
         <Revelar>
           <h2 id="titulo-especialista" className="display-2">
             Quem cuida da sua visão

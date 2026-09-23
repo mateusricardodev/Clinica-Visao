@@ -98,7 +98,7 @@ export function Formulario() {
 
   return (
     <section id="agendar" className="scroll-mt-[72px] bg-papel py-20 sm:py-28" aria-labelledby="titulo-agendar">
-      <div className="mx-auto grid max-w-[1280px] gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
+      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
         <Revelar className="lg:col-span-5">
           <h2 id="titulo-agendar" className="display-2">
             Solicite seu agendamento

@@ -31,7 +31,7 @@ export function Servicos() {
   const lista = ordem.map((id) => servicos.find((s) => s.id === id)!);
   return (
     <section id="servicos" className="scroll-mt-[72px] py-20 sm:py-28" aria-labelledby="titulo-servicos">
-      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
         <Revelar>
           <h2 id="titulo-servicos" className="display-2 max-w-[28ch]">
             Consulta, exames e acompanhamento no mesmo lugar

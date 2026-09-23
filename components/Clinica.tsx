@@ -12,7 +12,7 @@ const pontos = [
 export function Clinica() {
   return (
     <section id="clinica" className="scroll-mt-[72px] bg-papel py-20 sm:py-28" aria-labelledby="titulo-clinica">
-      <div className="mx-auto grid max-w-[1280px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <Revelar>
             <h2 id="titulo-clinica" className="display-2">

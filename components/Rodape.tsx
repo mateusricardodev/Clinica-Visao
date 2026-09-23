@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 export function Rodape() {
   return (
     <footer className="bg-petroleo text-azul-claro">
-      <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 sm:py-16">
+      <div className="mx-auto max-w-[1440px] px-5 py-14 sm:px-8 sm:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <Logo claro />

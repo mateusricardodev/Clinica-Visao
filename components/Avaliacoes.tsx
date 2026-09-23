@@ -28,7 +28,7 @@ export function Avaliacoes() {
   const { nota, total } = site.avaliacoes;
   return (
     <section id="avaliacoes" className="scroll-mt-[72px] bg-papel py-20 sm:py-28" aria-labelledby="titulo-avaliacoes">
-      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
         <Revelar className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <h2 id="titulo-avaliacoes" className="display-2">
             O que os pacientes dizem

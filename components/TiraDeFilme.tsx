@@ -18,7 +18,7 @@ type Props = {
   children: ReactNode;
 };
 
-const recuo = "max(var(--gutter), calc((100% - 1280px) / 2 + 2rem))";
+const recuo = "max(var(--gutter), calc((100% - 1440px) / 2 + 2rem))";
 
 /**
  * A faixa de fotos: azul-petróleo de ponta a ponta, com as fotos reais da clínica.
@@ -106,7 +106,7 @@ export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
 
   return (
     <div className="[--gutter:1.25rem] sm:[--gutter:2rem]">
-      <div className="mx-auto flex max-w-[1280px] items-end justify-between gap-8 px-5 sm:px-8">
+      <div className="mx-auto flex max-w-[1440px] items-end justify-between gap-8 px-5 sm:px-8">
         <div className="min-w-0 flex-1">{children}</div>
         <div className={`abertura shrink-0 pb-1 ${rolavel ? "hidden md:block" : "hidden"}`} style={{ "--ordem": 3 } as CSSProperties}>
           {controles}
@@ -163,7 +163,7 @@ export function TiraDeFilme({ quadros, codigoDeBorda, children }: Props) {
         </div>
       </div>
 
-      <div className={`mx-auto max-w-[1280px] justify-end px-5 pt-4 sm:px-8 ${rolavel ? "flex md:hidden" : "hidden"}`}>{controles}</div>
+      <div className={`mx-auto max-w-[1440px] justify-end px-5 pt-4 sm:px-8 ${rolavel ? "flex md:hidden" : "hidden"}`}>{controles}</div>
     </div>
   );
 }

@@ -44,7 +44,7 @@ export function Cabecalho() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-500 ${fundo}`}>
-      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8">
+      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8">
         <a href="#inicio" className="shrink-0 rounded-md" aria-label={`${site.nome}, voltar ao início`}>
           <Logo />
         </a>
@@ -87,7 +87,7 @@ export function Cabecalho() {
         hidden={!aberto}
         className="border-t border-linha bg-branco lg:hidden"
       >
-        <nav aria-label="Principal (celular)" className="mx-auto max-w-[1280px] px-5 py-3 sm:px-8">
+        <nav aria-label="Principal (celular)" className="mx-auto max-w-[1440px] px-5 py-3 sm:px-8">
           <ul className="divide-y divide-linha">
             {site.menu.map((item) => (
               <li key={item.href}>
