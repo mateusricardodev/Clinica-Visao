@@ -60,16 +60,18 @@ export const site = {
     total: 118,
   },
 
-  // Lista publicada pela própria clínica na ficha do Maps. Sem logos.
+  // Lista publicada pela própria clínica na ficha do Maps.
+  // A logo de cada um é lida de public/convenios/<id>.svg (ou .png/.webp);
+  // sem arquivo, o carrossel mostra o nome.
   convenios: [
-    "Mediservice",
-    "Unimed",
-    "NotreDame Intermédica",
-    "SulAmérica",
-    "Petrobras AMS",
-    "Sabesprev",
-    "Bradesco Saúde",
-    "Postal Saúde",
+    { id: "mediservice", nome: "Mediservice" },
+    { id: "unimed", nome: "Unimed" },
+    { id: "notredame-intermedica", nome: "NotreDame Intermédica" },
+    { id: "sulamerica", nome: "SulAmérica" },
+    { id: "petrobras-ams", nome: "Petrobras AMS" },
+    { id: "sabesprev", nome: "Sabesprev" },
+    { id: "bradesco-saude", nome: "Bradesco Saúde" },
+    { id: "postal-saude", nome: "Postal Saúde" },
   ],
 
   menu: [

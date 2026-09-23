@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { CalendarCheck, Eye, Microscope, UsersThree } from "@phosphor-icons/react/dist/ssr";
 import { fotos } from "@/lib/fotos";
 import { servicos } from "@/lib/servicos";
-import { site } from "@/lib/site";
+import { Convenios } from "./Convenios";
 import { Foto } from "./Foto";
 import { Revelar } from "./Revelar";
 
@@ -95,12 +95,7 @@ export function Servicos() {
           })}
         </ul>
 
-        <Revelar className="mt-8 border-t border-linha pt-6">
-          <p className="text-[0.9375rem] leading-relaxed text-suave">
-            <span className="font-semibold text-petroleo">Convênios atendidos: </span>
-            {site.convenios.join(", ")}. Confirme a cobertura do seu plano na recepção.
-          </p>
-        </Revelar>
+        <Convenios />
       </div>
     </section>
   );
