@@ -32,20 +32,30 @@ export function Cirurgias() {
         </Revelar>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-12">
-          <Revelar
-            as="figure"
-            className="overflow-hidden rounded-[var(--radius-quadro)] ring-1 ring-linha lg:col-span-4"
-          >
-            <div className="relative min-h-[320px] sm:min-h-[420px] lg:h-full">
-              <Foto
-                foto={fotos["dr-ruy-cirurgiao"]}
-                sizes="(min-width: 1024px) 420px, 100vw"
-                preencher
-                posicao="center 20%"
-                className="absolute inset-0"
-              />
-            </div>
-          </Revelar>
+          <div className="grid gap-5 sm:grid-cols-2 lg:col-span-4 lg:grid-cols-1">
+            <Revelar as="figure" className="overflow-hidden rounded-[var(--radius-quadro)] ring-1 ring-linha">
+              <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[260px]">
+                <Foto
+                  foto={fotos["dr-ruy-cirurgiao"]}
+                  sizes="(min-width: 1024px) 420px, 50vw"
+                  preencher
+                  posicao="center 20%"
+                  className="absolute inset-0"
+                />
+              </div>
+            </Revelar>
+            <Revelar as="figure" ordem={1} className="overflow-hidden rounded-[var(--radius-quadro)] ring-1 ring-linha">
+              <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[260px]">
+                <Foto
+                  foto={fotos["cirurgia-equipe"]}
+                  sizes="(min-width: 1024px) 420px, 50vw"
+                  preencher
+                  posicao="center 30%"
+                  className="absolute inset-0"
+                />
+              </div>
+            </Revelar>
+          </div>
 
           <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-8">
             {cirurgias.map((c, i) => (
