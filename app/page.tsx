@@ -1,6 +1,7 @@
 import { Avaliacoes } from "@/components/Avaliacoes";
 import { BotaoFlutuanteWhatsApp } from "@/components/BotaoFlutuanteWhatsApp";
 import { Cabecalho } from "@/components/Cabecalho";
+import { Cirurgias } from "@/components/Cirurgias";
 import { Clinica } from "@/components/Clinica";
 import { Contato } from "@/components/Contato";
 import { Especialista } from "@/components/Especialista";
@@ -25,6 +26,7 @@ export default function Pagina() {
       <main id="conteudo">
         <Hero />
         <Servicos />
+        <Cirurgias />
         <Clinica />
         <Especialista />
         <Avaliacoes />

@@ -25,6 +25,7 @@ export const site = {
     mensagens: {
       geral: "Olá! Gostaria de agendar uma consulta na Visão Assistência Oftalmológica.",
       especialista: "Olá! Gostaria de agendar uma consulta com o Dr. Ruy dos Santos Filho.",
+      cirurgias: "Olá! Gostaria de mais informações sobre as cirurgias oftalmológicas da clínica.",
     },
   },
 

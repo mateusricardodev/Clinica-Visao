@@ -103,6 +103,24 @@ export const fotos = {
     srcSet: "/fotos/dr-ruy-360.webp 360w, /fotos/dr-ruy-530.webp 530w",
     lqip: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQABAABABoJQBOgMYxwPuFzkxV7kwA/fhlvTtHbiVdYhKJB7TdgbSDA2l4paWh87Q5Uxn7Twh7tKwi/SV2YCAGMyJErD+rl3vSAdFuOa/JPNGahLG8eGiy0/pDkoHvLM6bgHCoNQaAAA==",
   },
+  "dr-ruy-cirurgiao": {
+    id: "dr-ruy-cirurgiao",
+    alt: "Dr. Ruy dos Santos Filho paramentado de preto, lupas cirúrgicas na cabeça, durante procedimento",
+    largura: 1000,
+    altura: 1333,
+    src: "/fotos/dr-ruy-cirurgiao-1000.webp",
+    srcSet: "/fotos/dr-ruy-cirurgiao-480.webp 480w, /fotos/dr-ruy-cirurgiao-720.webp 720w, /fotos/dr-ruy-cirurgiao-1000.webp 1000w",
+    lqip: "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAwCdASoQABUAPxFysFAsJqSisAgBgCIJQBfnAetmYLCqxN6rYWAA/sbcAcD5n0UFTUe4M/FvPP0IyHeI+k3UquDr4zom5eyKAOBhnUsGt6LFjRz/FKHrujeexPscFcZeKZpVKQBMkrKUDXItbCposzonUGJtPoJz0WjI+dfgAA==",
+  },
+  "cirurgia-equipe": {
+    id: "cirurgia-equipe",
+    alt: "Dr. Ruy e equipe cirúrgica operando sob o foco de luz da sala de cirurgia",
+    largura: 725,
+    altura: 966,
+    src: "/fotos/cirurgia-equipe-725.webp",
+    srcSet: "/fotos/cirurgia-equipe-480.webp 480w, /fotos/cirurgia-equipe-720.webp 720w, /fotos/cirurgia-equipe-725.webp 725w",
+    lqip: "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAwCdASoQABUAPxF0sFAsJySisAgBgCIJaADCgC0hvLp6CHhAAP7tpA7Wo0yMjcccdCZ1jq0M5YP1CMk40z/+QfniAWyhw+WCFCkf7kyUV/deHi+xieN58w5ZgMPhrTQqzwUIdn3mAA==",
+  },
 } as const satisfies Record<string, Foto>;
 
 export type FotoId = keyof typeof fotos;
