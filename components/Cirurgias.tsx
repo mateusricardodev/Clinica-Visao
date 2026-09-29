@@ -1,4 +1,4 @@
-import { ArrowUpRight, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { cirurgias } from "@/lib/cirurgias";
 import { fotos } from "@/lib/fotos";
 import { linkWhatsApp, site } from "@/lib/site";
@@ -9,7 +9,7 @@ import { Revelar } from "./Revelar";
 /**
  * Cirurgias e procedimentos de destaque do Dr. Ruy, pedidos explicitamente
  * pela clínica: blefaroplastia, catarata premium, refrativa, ceratocone e retina.
- * Cada card é uma foto com o nome por cima e abre, em nova aba, a página do procedimento.
+ * Cada card é uma foto com o nome por cima e leva à página do procedimento.
  */
 export function Cirurgias() {
   return (
@@ -35,8 +35,6 @@ export function Cirurgias() {
             >
               <a
                 href={`/cirurgias/${c.id}`}
-                target="_blank"
-                rel="noopener"
                 className="group relative block aspect-[4/3] overflow-hidden rounded-[var(--radius-quadro)] shadow-quadro focus-visible:outline-offset-4"
               >
                 <Foto
@@ -56,9 +54,8 @@ export function Cirurgias() {
                   </span>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold opacity-90 transition-[opacity,transform] duration-500 group-hover:translate-x-0.5 group-hover:opacity-100">
                     Saiba mais
-                    <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+                    <ArrowRight size={18} weight="bold" aria-hidden="true" />
                   </span>
-                  <span className="sr-only"> (abre em nova aba)</span>
                 </span>
               </a>
             </Revelar>
