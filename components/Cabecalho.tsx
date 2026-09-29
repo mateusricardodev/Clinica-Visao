@@ -45,7 +45,7 @@ export function Cabecalho() {
   return (
     <header className={`fixed inset-x-0 top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-500 ${fundo}`}>
       <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8">
-        <a href="#inicio" className="shrink-0 rounded-md" aria-label={`${site.nome}, voltar ao início`}>
+        <a href="/#inicio" className="shrink-0 rounded-md" aria-label={`${site.nome}, voltar ao início`}>
           <Logo />
         </a>
 
@@ -65,7 +65,7 @@ export function Cabecalho() {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <Botao href="#agendar" tamanho="compacto">
+          <Botao href="/#agendar" tamanho="compacto">
             <span className="sm:hidden">Agendar</span>
             <span className="hidden sm:inline">Agendar consulta</span>
           </Botao>

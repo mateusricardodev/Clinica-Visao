@@ -1,4 +1,4 @@
-import { Drop, CircleHalf, Scissors, Sparkle, Target, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { cirurgias } from "@/lib/cirurgias";
 import { fotos } from "@/lib/fotos";
 import { linkWhatsApp, site } from "@/lib/site";
@@ -6,17 +6,10 @@ import { Botao } from "./Botao";
 import { Foto } from "./Foto";
 import { Revelar } from "./Revelar";
 
-const icones: Record<string, React.ReactNode> = {
-  blefaroplastia: <Scissors size={28} weight="regular" aria-hidden="true" />,
-  catarata: <Sparkle size={28} weight="regular" aria-hidden="true" />,
-  refrativa: <Target size={28} weight="regular" aria-hidden="true" />,
-  ceratocone: <Drop size={28} weight="regular" aria-hidden="true" />,
-  retina: <CircleHalf size={28} weight="regular" aria-hidden="true" />,
-};
-
 /**
  * Cirurgias e procedimentos de destaque do Dr. Ruy, pedidos explicitamente
  * pela clínica: blefaroplastia, catarata premium, refrativa, ceratocone e retina.
+ * Cada card é uma foto com o nome por cima e abre, em nova aba, a página do procedimento.
  */
 export function Cirurgias() {
   return (
@@ -27,43 +20,52 @@ export function Cirurgias() {
             Cirurgias e procedimentos com o Dr. Ruy
           </h2>
           <p className="medida mt-4 text-[1.0625rem] leading-relaxed text-suave">
-            Do consultório ao centro cirúrgico, o mesmo médico acompanha cada etapa do tratamento.
+            Do consultório ao centro cirúrgico, o mesmo médico acompanha cada etapa do tratamento. Toque em um
+            procedimento para saber como ele funciona.
           </p>
         </Revelar>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-12">
-          <Revelar
-            as="figure"
-            className="overflow-hidden rounded-[var(--radius-quadro)] ring-1 ring-linha lg:col-span-4"
-          >
-            <div className="relative min-h-[320px] sm:min-h-[420px] lg:h-full">
-              <Foto
-                foto={fotos["dr-ruy-cirurgiao"]}
-                sizes="(min-width: 1024px) 420px, 100vw"
-                preencher
-                posicao="center 20%"
-                className="absolute inset-0"
-              />
-            </div>
-          </Revelar>
-
-          <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-8">
-            {cirurgias.map((c, i) => (
-              <Revelar
-                as="li"
-                key={c.id}
-                ordem={i + 1}
-                className="rounded-[var(--radius-quadro)] bg-branco p-7 ring-1 ring-linha transition-[transform,box-shadow] duration-500 [transition-timing-function:var(--ease-saida)] hover:-translate-y-1 hover:shadow-quadro motion-reduce:transition-none"
+        <ul className="mt-10 flex flex-wrap justify-center gap-5">
+          {cirurgias.map((c, i) => (
+            <Revelar
+              as="li"
+              key={c.id}
+              ordem={i}
+              className="w-full sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]"
+            >
+              <a
+                href={`/cirurgias/${c.id}`}
+                target="_blank"
+                rel="noopener"
+                className="group relative block aspect-[4/3] overflow-hidden rounded-[var(--radius-quadro)] shadow-quadro focus-visible:outline-offset-4"
               >
-                <span className="text-petroleo">{icones[c.id]}</span>
-                <h3 className="display-3 mt-5 text-[1.25rem]">{c.titulo}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-suave">{c.texto}</p>
-              </Revelar>
-            ))}
-          </ul>
-        </div>
+                <Foto
+                  foto={fotos[c.foto]}
+                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 50vw, 100vw"
+                  preencher
+                  posicao={c.posicao ?? "center"}
+                  className="transition-transform duration-[1200ms] [transition-timing-function:var(--ease-saida)] group-hover:scale-105 motion-reduce:transition-none"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-petroleo/50 transition-colors duration-500 group-hover:bg-petroleo/70"
+                />
+                <span className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-branco">
+                  <span className="text-[1.625rem] font-semibold leading-tight tracking-[-0.01em] [text-shadow:0_2px_12px_rgb(0_0_0/0.35)] sm:text-[1.875rem]">
+                    {c.titulo}
+                  </span>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold opacity-90 transition-[opacity,transform] duration-500 group-hover:translate-x-0.5 group-hover:opacity-100">
+                    Saiba mais
+                    <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+                  </span>
+                  <span className="sr-only"> (abre em nova aba)</span>
+                </span>
+              </a>
+            </Revelar>
+          ))}
+        </ul>
 
-        <Revelar ordem={cirurgias.length + 1} className="mt-8">
+        <Revelar ordem={cirurgias.length} className="mt-10 flex justify-center">
           <Botao
             href={linkWhatsApp(site.whatsapp.mensagens.cirurgias)}
             icone={<WhatsappLogo size={22} weight="regular" aria-hidden="true" />}
