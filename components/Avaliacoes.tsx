@@ -45,7 +45,7 @@ export function Avaliacoes() {
             <p className="mt-2 text-[0.9375rem] text-suave">
               <span className="tabular font-semibold text-tinta">{total}</span> avaliações no Google ·{" "}
               <a
-                href={site.mapa.ficha}
+                href={site.mapa.avaliacoes}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center gap-1 rounded-md font-semibold text-petroleo underline decoration-azul-claro decoration-2 underline-offset-[5px] transition-colors hover:decoration-agua"
@@ -91,7 +91,7 @@ export function Avaliacoes() {
 
         <Revelar className="mt-12 flex justify-center">
           <Botao
-            href={site.mapa.ficha}
+            href={site.mapa.avaliar}
             variante="secundario"
             tamanho="compacto"
             icone={<Star size={18} weight="fill" aria-hidden="true" />}

@@ -264,7 +264,7 @@ export function Formulario() {
 
               <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-[0.875rem] leading-relaxed text-suave">
-                  Sem compromisso. O pedido segue pelo WhatsApp da clínica, {site.whatsapp.exibicao}.
+                  O pedido segue pelo WhatsApp da clínica, {site.whatsapp.exibicao}.
                 </p>
                 <Botao type="submit" icone={<WhatsappLogo size={22} weight="regular" aria-hidden="true" />}>
                   Solicitar agendamento

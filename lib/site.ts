@@ -63,6 +63,10 @@ export const site = {
 
   mapa: {
     ficha: "https://maps.app.goo.gl/mxtThmv9pPowLzfJ9",
+    // Place ID da ficha no Google (ChIJ…), tirado da própria ficha do Maps.
+    // "avaliar" abre direto a janela de escrever avaliação; "avaliacoes" lista as avaliações.
+    avaliar: "https://search.google.com/local/writereview?placeid=ChIJZ-bnzGxKzJQRhz8u_xBAF_o",
+    avaliacoes: "https://search.google.com/local/reviews?placeid=ChIJZ-bnzGxKzJQRhz8u_xBAF_o",
     comoChegar:
       "https://www.google.com/maps/dir/?api=1&destination=Vis%C3%A3o+Assist%C3%AAncia+Oftalmol%C3%B3gica+%26+Dr+Ruy+dos+Santos+Filho%2C+Rua+Engenheiro+Jo%C3%A3o+Fonseca%2C+49+-+Vila+Adyana%2C+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP",
     embed:
