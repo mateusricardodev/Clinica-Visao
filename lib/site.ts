@@ -90,13 +90,13 @@ export const site = {
   ],
 
   menu: [
-    { rotulo: "Início", href: "#inicio" },
-    { rotulo: "Serviços", href: "#servicos" },
-    { rotulo: "Clínica", href: "#clinica" },
-    { rotulo: "Especialistas", href: "#especialistas" },
-    { rotulo: "Avaliações", href: "#avaliacoes" },
-    { rotulo: "Dúvidas", href: "#duvidas" },
-    { rotulo: "Contato", href: "#contato" },
+    { rotulo: "Início", href: "/#inicio" },
+    { rotulo: "Serviços", href: "/#servicos" },
+    { rotulo: "Clínica", href: "/#clinica" },
+    { rotulo: "Especialistas", href: "/#especialistas" },
+    { rotulo: "Avaliações", href: "/#avaliacoes" },
+    { rotulo: "Dúvidas", href: "/#duvidas" },
+    { rotulo: "Contato", href: "/#contato" },
   ],
 } as const;
 

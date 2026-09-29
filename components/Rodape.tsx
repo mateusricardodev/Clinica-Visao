@@ -55,7 +55,7 @@ export function Rodape() {
               ))}
               <li>
                 <a
-                  href="#agendar"
+                  href="/#agendar"
                   className="rounded-md underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:text-branco hover:decoration-agua-luz"
                 >
                   Agendar consulta
