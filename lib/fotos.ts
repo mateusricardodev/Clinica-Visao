@@ -184,6 +184,15 @@ export const fotos = {
     srcSet: "/fotos/cir-olho-anel-2-480.webp 480w, /fotos/cir-olho-anel-2-800.webp 800w, /fotos/cir-olho-anel-2-1200.webp 1200w",
     lqip: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAwABABoJbACdADpNM8XX0sAAPa5A1XR8h7VhwoJLVe/XXucN33+yvoEjxICJtOCMhILf1hV8yCYvVN6mOQ/amMkYwe7Y4Xy23u4x+gAAA==",
   },
+  "hero-olho": {
+    id: "hero-olho",
+    alt: "Olho claro em close, com cílios longos, ao lado de um fundo verde-azulado desfocado",
+    largura: 1920,
+    altura: 500,
+    src: "/fotos/hero-olho-1920.webp",
+    srcSet: "/fotos/hero-olho-800.webp 800w, /fotos/hero-olho-1280.webp 1280w, /fotos/hero-olho-1920.webp 1920w",
+    lqip: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAQABABoJZACdAEAIx1iQAD+7NIexO2wY+QsvL1UPgGPmGh+SBadMOXqoZ7ktQK53cAA",
+  },
 } as const satisfies Record<string, Foto>;
 
 export type FotoId = keyof typeof fotos;
