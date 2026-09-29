@@ -193,6 +193,33 @@ export const fotos = {
     srcSet: "/fotos/hero-olho-800.webp 800w, /fotos/hero-olho-1280.webp 1280w, /fotos/hero-olho-1920.webp 1920w",
     lqip: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAQABABoJZACdAEAIx1iQAD+7NIexO2wY+QsvL1UPgGPmGh+SBadMOXqoZ7ktQK53cAA",
   },
+  "un-ceratocone-olho": {
+    id: "un-ceratocone-olho",
+    alt: "Olho azul-acinzentado em close, com a córnea refletindo a luz",
+    largura: 1600,
+    altura: 1200,
+    src: "/fotos/un-ceratocone-olho-1600.webp",
+    srcSet: "/fotos/un-ceratocone-olho-480.webp 480w, /fotos/un-ceratocone-olho-800.webp 800w, /fotos/un-ceratocone-olho-1200.webp 1200w, /fotos/un-ceratocone-olho-1600.webp 1600w",
+    lqip: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoQAAwABABoJZAC7AEVnMmOf4nfAAD+6e7HG/YFsbfQXkuk22RyGM6Fa8z/nwaZ2MrrItx/p2yzDO5/i4p1yc4Yk8QoTBl2MxYAAA==",
+  },
+  "un-refrativa-olho": {
+    id: "un-refrativa-olho",
+    alt: "Olho azul em close, com reflexos de luz na córnea",
+    largura: 1600,
+    altura: 1200,
+    src: "/fotos/un-refrativa-olho-1600.webp",
+    srcSet: "/fotos/un-refrativa-olho-480.webp 480w, /fotos/un-refrativa-olho-800.webp 800w, /fotos/un-refrativa-olho-1200.webp 1200w, /fotos/un-refrativa-olho-1600.webp 1600w",
+    lqip: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAwABABoJQBOgBoiYRCjFowAAOJwn8Ko1cZPY/5d0rv5nEnOkffvQlir/bTb1oonA1TTZAGpGqcXJvAbFCHc3Dnyw7CG4kjgAA==",
+  },
+  "un-retina-exame": {
+    id: "un-retina-exame",
+    alt: "Oftalmologista examinando uma paciente na lâmpada de fenda, com a imagem do fundo de olho no monitor ao fundo",
+    largura: 1600,
+    altura: 1200,
+    src: "/fotos/un-retina-exame-1600.webp",
+    srcSet: "/fotos/un-retina-exame-480.webp 480w, /fotos/un-retina-exame-800.webp 800w, /fotos/un-retina-exame-1200.webp 1200w, /fotos/un-retina-exame-1600.webp 1600w",
+    lqip: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAgCdASoQAAwABABoJZACdAYtz2k00st7ZusAAP62t/uej/GMfbyLNXWH+HuFkaJCjqe6rWJxw/KsnssL73/25c/own6//6snHl+Q/ADQ/hg35oF/PmWagAA=",
+  },
 } as const satisfies Record<string, Foto>;
 
 export type FotoId = keyof typeof fotos;
