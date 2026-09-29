@@ -1,12 +1,9 @@
 import type { CSSProperties } from "react";
-import { CheckCircle, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { fotos } from "@/lib/fotos";
 import { linkWhatsApp } from "@/lib/site";
 import { Botao } from "./Botao";
 import { Foto } from "./Foto";
-
-// Os três destaques do briefing, logo abaixo dos botões.
-const destaques = ["Atendimento humanizado", "Equipamentos modernos", "Consultas completas"];
 
 /**
  * Abertura em foto de ponta a ponta, no modelo do eyesorlando.com: o olho fica
@@ -60,17 +57,6 @@ export function Hero() {
                 Falar no WhatsApp
               </Botao>
             </div>
-            <ul
-              className="abertura mt-9 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] font-medium text-branco/90"
-              style={{ "--ordem": 3 } as CSSProperties}
-            >
-              {destaques.map((d) => (
-                <li key={d} className="flex items-center gap-2">
-                  <CheckCircle size={20} weight="fill" aria-hidden="true" className="text-agua-luz" />
-                  {d}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
