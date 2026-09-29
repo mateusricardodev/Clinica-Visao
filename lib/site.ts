@@ -7,8 +7,8 @@ export const site = {
   medico: "Dr. Ruy dos Santos Filho",
   especialidade: "Oftalmologia",
   cidade: "São José dos Campos",
-  // Troque pelo domínio real antes de publicar. Alimenta canonical, Open Graph e sitemap.
-  url: "https://clinicavisao.com.br",
+  // Domínio definitivo. Alimenta canonical, Open Graph, sitemap, robots e dados estruturados.
+  url: "https://oftalmoclinicavisao.com.br",
   descricao:
     "Atendimento oftalmológico completo em São José dos Campos, com experiência, atenção e tecnologia para cuidar da saúde dos seus olhos.",
 

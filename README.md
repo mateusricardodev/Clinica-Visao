@@ -55,7 +55,7 @@ Abra [http://localhost:3000](http://localhost:3000).
 | [`lib/fotos.ts`](./lib/fotos.ts) | Catálogo gerado de imagens e metadados. Não editar manualmente. |
 | [`app/globals.css`](./app/globals.css) | Tokens visuais, tipografia, cores e animações. |
 
-Antes de publicar, altere `site.url` em [`lib/site.ts`](./lib/site.ts) para o domínio definitivo. Esse valor é usado na canonical, Open Graph, sitemap e dados estruturados.
+O domínio definitivo é `https://oftalmoclinicavisao.com.br`, em `site.url` de [`lib/site.ts`](./lib/site.ts). Esse valor é usado na canonical, Open Graph, sitemap, robots e dados estruturados.
 
 ## Publicação
 
@@ -100,7 +100,7 @@ As imagens são entregues em WebP, em múltiplas larguras, com placeholder e dim
 
 - [ ] Confirmar endereço, horários, telefones e link do WhatsApp.
 - [ ] Confirmar serviços, convênios, exames, avaliações e depoimentos.
-- [ ] Trocar o domínio de demonstração em `site.url`.
+- [x] Trocar o domínio de demonstração em `site.url`.
 - [ ] Conectar o formulário a um canal seguro de atendimento.
 - [ ] Criar a política de privacidade se houver coleta de dados pessoais.
 - [ ] Testar os fluxos em celular: WhatsApp, telefone, mapa e formulário.
