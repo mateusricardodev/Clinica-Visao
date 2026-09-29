@@ -4,6 +4,9 @@ import type { FotoId } from "./fotos";
 // na página inicial e uma página própria em /cirurgias/<id>.
 // Os textos são informação geral sobre o procedimento, sem promessa de resultado:
 // a indicação depende sempre da avaliação na consulta.
+// Fotos "un-*": Unsplash (licença livre para uso comercial), escolhidas para os cards:
+// unsplash.com/photos/B0zAPSrEcFw (ceratocone), unsplash.com/photos/QRawWgV6gmo (refrativa),
+// unsplash.com/photos/bfcPP-LlZMI (retina). As fotos da própria clínica ficam na galeria.
 
 export type Secao = {
   titulo: string;
@@ -98,8 +101,8 @@ export const cirurgias: Cirurgia[] = [
     id: "refrativa",
     titulo: "Cirurgias refrativas",
     texto: "Correção de miopia, hipermetropia e astigmatismo para reduzir ou eliminar o uso de óculos e lentes de contato.",
-    foto: "cir-refrativa-laser",
-    posicao: "center 40%",
+    foto: "un-refrativa-olho",
+    galeria: ["cir-refrativa-laser"],
     introducao:
       "A cirurgia refrativa usa o laser para remodelar a córnea e corrigir o grau. O objetivo é reduzir ou eliminar a necessidade de óculos e lentes de contato.",
     secoes: [
@@ -135,8 +138,8 @@ export const cirurgias: Cirurgia[] = [
     id: "ceratocone",
     titulo: "Cirurgias de ceratocone",
     texto: "Tratamento cirúrgico do ceratocone, incluindo crosslinking e outras técnicas para estabilizar a córnea.",
-    foto: "cir-olho-anel-1",
-    galeria: ["cir-olho-anel-2"],
+    foto: "un-ceratocone-olho",
+    galeria: ["cir-olho-anel-1", "cir-olho-anel-2"],
     introducao:
       "O ceratocone deixa a córnea mais fina e com formato de cone, o que distorce a visão e aumenta o astigmatismo. Costuma aparecer na adolescência e pode progredir. O tratamento busca frear essa progressão e melhorar a qualidade da visão.",
     secoes: [
@@ -167,7 +170,8 @@ export const cirurgias: Cirurgia[] = [
     id: "retina",
     titulo: "Retina clínica",
     texto: "Acompanhamento e tratamento clínico das doenças da retina, com equipamentos próprios da clínica.",
-    foto: "lampada-fenda",
+    foto: "un-retina-exame",
+    galeria: ["lampada-fenda"],
     introducao:
       "A retina é o tecido do fundo do olho que capta as imagens. Muitas das doenças que a atingem não dão sintomas no início, por isso o acompanhamento regular é o que permite tratar cedo.",
     secoes: [
