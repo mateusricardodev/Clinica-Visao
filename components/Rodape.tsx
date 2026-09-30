@@ -65,9 +65,20 @@ export function Rodape() {
           </nav>
         </div>
 
-        <p className="mt-12 border-t border-branco/15 pt-6 text-[0.875rem] text-azul-claro/80">
-          © 2026 {site.nome}. Todos os direitos reservados.
-        </p>
+        <div className="mt-12 flex flex-col gap-2 border-t border-branco/15 pt-6 text-[0.875rem] text-azul-claro/80 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 {site.nome}. Todos os direitos reservados.</p>
+          <p>
+            Desenvolvido por:{" "}
+            <a
+              href="https://www.linkedin.com/in/mateus-ricardo"
+              target="_blank"
+              rel="noopener"
+              className="rounded-md font-semibold text-branco underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:text-agua-luz hover:decoration-agua-luz"
+            >
+              Mateus Ricardo
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
