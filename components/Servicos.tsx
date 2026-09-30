@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { CalendarCheck, Eye, Microscope, UsersThree } from "@phosphor-icons/react/dist/ssr";
 import { fotos } from "@/lib/fotos";
 import { servicos } from "@/lib/servicos";
-import { Convenios } from "./Convenios";
 import { Foto } from "./Foto";
 import { Revelar } from "./Revelar";
 
@@ -30,7 +29,7 @@ const ordem = ["exames", "consulta", "familia", "prevencao"];
 export function Servicos() {
   const lista = ordem.map((id) => servicos.find((s) => s.id === id)!);
   return (
-    <section id="servicos" className="scroll-mt-[72px] py-20 sm:py-28" aria-labelledby="titulo-servicos">
+    <section id="servicos" className="scroll-mt-[72px] border-t border-linha py-20 sm:py-28" aria-labelledby="titulo-servicos">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
         <Revelar>
           <h2 id="titulo-servicos" className="display-2 max-w-[28ch]">
@@ -95,7 +94,6 @@ export function Servicos() {
           })}
         </ul>
 
-        <Convenios />
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { Cabecalho } from "@/components/Cabecalho";
 import { Cirurgias } from "@/components/Cirurgias";
 import { Clinica } from "@/components/Clinica";
 import { Contato } from "@/components/Contato";
+import { Convenios } from "@/components/Convenios";
 import { Especialista } from "@/components/Especialista";
 import { Faq } from "@/components/Faq";
 import { Formulario } from "@/components/Formulario";
@@ -25,8 +26,9 @@ export default function Pagina() {
       <Cabecalho />
       <main id="conteudo">
         <Hero />
-        <Servicos />
         <Cirurgias />
+        <Convenios />
+        <Servicos />
         <Clinica />
         <Especialista />
         <Avaliacoes />

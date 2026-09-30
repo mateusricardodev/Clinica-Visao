@@ -40,25 +40,27 @@ function logoDe(id: string): Pick<Convenio, "logo" | "proporcao"> {
 export function Convenios() {
   const itens: Convenio[] = site.convenios.map((c) => ({ nome: c.nome, ...logoDe(c.id) }));
   return (
-    <div className="mt-20 border-t border-linha pt-16 sm:mt-24 sm:pt-20">
-      <Revelar className="mx-auto max-w-[40rem] text-center">
-        <h3 id="titulo-convenios" className="display-2">
-          Convênios
-        </h3>
-        <p className="mt-4 text-[1.0625rem] leading-relaxed text-suave">
-          Confira os planos atendidos e confirme a cobertura do seu na recepção.
-        </p>
-      </Revelar>
+    <section id="convenios" className="scroll-mt-[72px] py-20 sm:py-28" aria-labelledby="titulo-convenios">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+        <Revelar className="mx-auto max-w-[40rem] text-center">
+          <h2 id="titulo-convenios" className="display-2">
+            Convênios
+          </h2>
+          <p className="mt-4 text-[1.0625rem] leading-relaxed text-suave">
+            Confira os planos atendidos e confirme a cobertura do seu na recepção.
+          </p>
+        </Revelar>
 
-      <Revelar ordem={1} className="mt-12">
-        <CarrosselConvenios itens={itens} />
-      </Revelar>
+        <Revelar ordem={1} className="mt-12">
+          <CarrosselConvenios itens={itens} />
+        </Revelar>
 
-      <div className="mt-12 flex justify-center">
-        <Botao href="#agendar" variante="secundario">
-          Agendar consulta
-        </Botao>
+        <div className="mt-12 flex justify-center">
+          <Botao href="#agendar" variante="secundario">
+            Agendar consulta
+          </Botao>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
