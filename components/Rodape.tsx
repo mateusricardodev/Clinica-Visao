@@ -1,10 +1,17 @@
+import { Fragment } from "react";
 import { InstagramLogo } from "@phosphor-icons/react/dist/ssr";
 import { enderecoLinha, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
+// Crédito no rodapé: cada nome abre o LinkedIn da pessoa.
+const desenvolvedores = [
+  { nome: "Mateus Ricardo", url: "https://www.linkedin.com/in/mateus-ricardo" },
+  { nome: "Miguel Quintanilha", url: "https://www.linkedin.com/in/miguel-quintanilha" },
+];
+
 export function Rodape() {
   return (
-    <footer className="bg-petroleo text-azul-claro">
+    <footer className="bg-petroleo pb-20 text-azul-claro lg:pb-0">
       <div className="mx-auto max-w-[1440px] px-5 py-14 sm:px-8 sm:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -69,14 +76,19 @@ export function Rodape() {
           <p>© 2026 {site.nome}. Todos os direitos reservados.</p>
           <p>
             Desenvolvido por:{" "}
-            <a
-              href="https://www.linkedin.com/in/mateus-ricardo"
-              target="_blank"
-              rel="noopener"
-              className="rounded-md font-semibold text-branco underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:text-agua-luz hover:decoration-agua-luz"
-            >
-              Mateus Ricardo
-            </a>
+            {desenvolvedores.map((d, i) => (
+              <Fragment key={d.url}>
+                {i > 0 && " e "}
+                <a
+                  href={d.url}
+                  target="_blank"
+                  rel="noopener"
+                  className="rounded-md font-semibold text-branco underline decoration-transparent decoration-2 underline-offset-[6px] transition-colors hover:text-agua-luz hover:decoration-agua-luz"
+                >
+                  {d.nome}
+                </a>
+              </Fragment>
+            ))}
           </p>
         </div>
       </div>
